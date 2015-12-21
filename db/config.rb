@@ -1,6 +1,7 @@
 require "active_record"
 
-ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
+ActiveRecord::Base.logger = 
+ActiveSupport::Logger.new(STDOUT)
 
 
 if ENV['RACK_ENV'] == 'production'
@@ -21,6 +22,7 @@ else
     :adapter => 'sqlite3',
     :database =>  'db/database.sqlite3'
   }
+end
 
 ActiveRecord::Base.establish_connection(db_config)
 
